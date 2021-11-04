@@ -1,0 +1,16 @@
+Your Message from input:
+Tamim Ziyad BarCA!!
+
+Prefix Codes:
+! : 100
+A : 0010
+B : 1010
+C : 0001
+T : 1101
+Z : 1011
+a : 111
+d : 1100
+i : 010
+m : 011
+r : 0000
+y : 0011
