@@ -62,7 +62,13 @@ namespace VisioLab {
 			osHuffman << prefixCodes;
 			osHuffman.close();
 		}
-		ShellExecute(NULL, TEXT("open"), TEXT("C:\\Users\\505\\source\\repos\\SFML Practice\\SFML Practice\\Results\\Prefix Codes.txt"), NULL, NULL, SW_NORMAL);
+
+		FileManager::writeToDisk();
+		std::string nDir = "\"" + workingDir + "\\\\Results\\\\Prefix Codes.txt" + "\"";
+		std::wstring stemp = std::wstring(nDir.begin(), nDir.end());
+
+		LPCWSTR sw = stemp.c_str();
+		ShellExecute(NULL, TEXT("open"), sw, NULL, NULL, SW_NORMAL);
 	}
 
 	bool HuffmanTree::huffmanCoding(void) {

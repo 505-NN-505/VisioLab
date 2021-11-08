@@ -93,12 +93,17 @@ namespace VisioLab {
     }
 
     void Browser::writeToDisk(void) {
+        FileManager::writeToDisk();
         os.open("Results/Browser's History.txt");
         os << "Search History:\n";
         os << History;
         os.close();
-        // please give the local address of your prpject's Results folder
-        ShellExecute(NULL, TEXT("open"), TEXT("C:\\Users\\505\\source\\repos\\SFML Practice\\SFML Practice\\Results\\Browser's History.txt"), NULL, NULL, SW_NORMAL);
+        
+        std::string nDir = "\"" + workingDir + "\\\\Results\\\\Browser's History.txt" + "\"";
+        std::wstring stemp = std::wstring(nDir.begin(), nDir.end());
+        
+        LPCWSTR sw = stemp.c_str();
+        ShellExecute(NULL, TEXT("open"), sw, NULL, NULL, SW_NORMAL);
     }
 
     void Browser::visualize(sf::RenderWindow& window) {

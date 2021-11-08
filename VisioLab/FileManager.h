@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstring>
 #include <vector>
 #include <map>
 #include <set>
@@ -63,11 +64,54 @@ namespace VisioLab {
     class FileManager {
     protected:
         std::ofstream os;
+        std::string workingDir;
+
     public:
         FileManager() { }
         FileManager(const std::string& fileName) {
             os.open(fileName);
         }
-        void writeToDisk(void) { }
+        std::string GetWorkingDir() {
+            char buf[256];
+            GetCurrentDirectoryA(256, buf);
+            return std::string(buf);
+        }
+        void fixDirFormat() {
+            int indx;
+            for (int i = workingDir.size() - 1; i >= 0; i--) {
+                if (workingDir[i] == '\\') {
+                    indx = i;
+                }
+                else break;
+            }
+            std::set<int> indices;
+            for (int i = 0; i < indx; i++) {
+                if (workingDir[i] == '\\') {
+                    indices.insert(i);
+                }
+            }
+            for (int i = indx, cnt = 0; i < workingDir.size(); i++) {
+                for (int j = i; j >= 2; j--) {
+                    if (j - 1 - cnt == *indices.begin()) {
+                        indices.erase(*indices.begin());
+                        cnt++;
+                        break;
+                    }
+                    else swap(workingDir[j], workingDir[j - 1]);
+                }
+            }
+        }
+        void writeToDisk(void) {
+            workingDir = GetWorkingDir();
+            std::string temp = "";
+            for (int i = 0; i < workingDir.size(); i++) {
+                if (workingDir[i] == '\\') {
+                    temp = temp + "\\";
+                }
+            }
+            workingDir += temp;
+            fixDirFormat();
+        }
+
     };
 }
