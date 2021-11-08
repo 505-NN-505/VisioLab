@@ -17,7 +17,7 @@ namespace VisioLab {
 			}
 			this->_isRemoving = false;
 		}
-		if (this->_isAdding) {
+		else if (this->_isAdding) {
 			if (!this->_states.empty()) {
 				if (this->_isReplacing) {			// for example, the menu screen will be replaced when we
 					this->_states.pop();			// select the ds. we must discard the state

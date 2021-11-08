@@ -29,11 +29,11 @@ namespace VisioLab {
 		_enqueueButton.setTexture(this->_data->assets.getTexture("Enqueue Button"));
 		_enqueueButton.setPosition({ 650.f, 600.f });
 
-		this->_data->assets.LoadFont("Marker Felt", MARKER_FELT);
-		font = this->_data->assets.getFont("Marker Felt");
+		this->_data->assets.LoadFont("ARLRDBD", ARLRDBD);
+		font = this->_data->assets.getFont("ARLRDBD");
 
 		hashing.load({ 100, 40 }, { 180, 70 }, font, " ");
-		textbox1.load(15, sf::Color::White, false, font, { 600, 700 });
+		textbox1.load(30, sf::Color::White, false, font, { 600, 700 });
 		monitor.load("Resources/Textures/monitor.png", font, 50, recPlat);
 
 		canType = 0;
@@ -60,7 +60,6 @@ namespace VisioLab {
 					string x = hashing.linearProbing(textbox1.getText(), this->_data->window);
 					monitor.setText(x);
 					textbox1.clear();
-					//searchButton.resetBgColor();
 				}
 			}
 
@@ -79,36 +78,40 @@ namespace VisioLab {
 						this->_data->machine.AddState(StateRef(new PauseState(_data)), false);
 					}
 
-
 					if (this->_data->input.isSpriteClicked(this->_enqueueButton, sf::Mouse::Left, this->_data->window)) {
 						canType = 1;
-						//_enqueueButton.setBgColor(sf::Color({ 255, 7, 58 }));
 						textbox1.setSelected(true);
 					}
 				}
 			}
 
-			else if (event.type == sf::Event::MouseButtonReleased)
-			{
-				//_forwardButton.resetBgColor();
+			if (!canType && this->_data->input.isMouseOnIt(this->_forwardButton, event, this->_data->window)) {
+				_forwardButton.setColor(sf::Color::Blue);
 			}
-			/*
-			else if (!canType && event.type == sf::Event::MouseMoved)
-			{
-				sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-
-
-				if (_forwardButton.isMouseClicked(mousePos))
-					_forwardButton.setBgColor(sf::Color({ 44, 44, 255 }));
-				else
-					_forwardButton.resetBgColor();
-
-				if (_enqueueButton.isMouseClicked(mousePos))
-					_enqueueButton.setBgColor(sf::Color({ 44, 44, 255 }));
-				else
-					_enqueueButton.resetBgColor();
+			else {
+				_forwardButton.setColor(sf::Color::White);
 			}
-			*/
+			if (this->_data->input.isMouseOnIt(this->_enqueueButton, event, this->_data->window)) {
+				_enqueueButton.setColor(sf::Color::Blue);
+				if (canType) _enqueueButton.setColor(sf::Color::Red);
+			}
+			else {
+				if (canType) _enqueueButton.setColor(sf::Color::Red);
+				else _enqueueButton.setColor(sf::Color::White);
+			}
+
+			if (!canType && this->_data->input.isMousePressedOnIt(this->_forwardButton, event, this->_data->window)) {
+				_forwardButton.setColor(sf::Color::Green);
+			}
+			else if (!canType && this->_data->input.isMouseReleasedFromIt(this->_forwardButton, event, this->_data->window)) {
+				_forwardButton.setColor(sf::Color::Blue);
+			}
+			if (!canType && this->_data->input.isMousePressedOnIt(this->_enqueueButton, event, this->_data->window)) {
+				_enqueueButton.setColor(sf::Color::Green);
+			}
+			else if (!canType && this->_data->input.isMouseReleasedFromIt(this->_enqueueButton, event, this->_data->window)) {
+				_enqueueButton.setColor(sf::Color::Blue);
+			}
 		}
 	}
 

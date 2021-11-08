@@ -17,7 +17,6 @@ namespace VisioLab {
 
         Node(int k)
         {
-            //  cout<<"Inside node,data : "<<k<<endl;
             shape.setRadius(35);
             shape.setFillColor(sf::Color::White);
             shape.setOutlineThickness(3);
@@ -28,7 +27,6 @@ namespace VisioLab {
         };
         ~Node()
         {
-            cout << "destructor" << endl;
         }
 
         friend class BST;
@@ -80,7 +78,6 @@ namespace VisioLab {
         };
         ~BST()
         {
-            delete p;
         }
         void setRoot(Node* t)
         {
@@ -92,8 +89,6 @@ namespace VisioLab {
         }
         int Left_Height(Node* temp)
         {
-
-            //     cout<<"Calculating left height"<<endl;
             if (temp != NULL)
                 cout << "CURR DATA IN Left HEIGHT FUNC " << temp->data << endl;
             if (temp == NULL)
@@ -102,16 +97,11 @@ namespace VisioLab {
             }
             else
                 temp = temp->left;
-            //     cout<<"Going left"<<endl;
             int left_H = Left_Height(temp);
-            //    cout<<"left height ="<<left_H + 1<<endl;
-            cout << "Out from Left" << endl;
             return left_H + 1;
         }
         int Right_Height(Node* temp)
         {
-
-            //        cout<<"Calculating right height"<<endl;
             if (temp != NULL)
                 cout << "CURR DATA IN Right HEIGHT FUNC " << temp->data << endl;
             if (temp == NULL)
@@ -170,66 +160,47 @@ namespace VisioLab {
                 full = 0;
                 break;
             default:
-                cout << "Maximum height of the tree is 5" << endl;
                 full = 1;
                 break;
             }
-            cout << "x=" << x << "   y= " << y << endl;
-
         }
 
         void drawRightNode(Node* t, int r)
         {
-
-            cout << "Right height = " << r << endl;
-            //cout<<"Curr data in drw RIGHT: "<<curr->data<<endl;
             switch (r)
             {
             case 0:
-                cout << "case -1   r =" << r << endl;
                 x = 680;
                 y = 150;
                 full = 0;
                 break;
             case 1:
-                cout << "case 0   r =" << r << endl;
                 x = x + 300;
                 y = 250;
                 full = 0;
                 break;
             case 2:
-                cout << "case 1   r =" << r << endl;
                 x = x + 140;
                 y = 350;
                 full = 0;
                 break;
             case 3:
-                cout << "case 2   r =" << r << endl;
                 x += 80;
                 y = 450;
                 full = 0;
                 break;
             case 4:
-                cout << "case 3   r =" << r << endl;
                 x += 46;
                 y = 550;
                 full = 0;
                 break;
             default:
-                cout << "Maximum height of the tree is 5" << endl;
                 full = 1;
                 break;
             }
-            cout << "x=" << x << "   y= " << y << endl;
-
-            //    cout<<"Draw right"<<endl;
-
-            //   curr->shape.setPosition(x,y);
-
         }
         void setInput(sf::Text val)
         {
-            //input.setString(str);
             input = val;
         }
         sf::Text get_input()
@@ -272,56 +243,38 @@ namespace VisioLab {
                     }
                     else
                         L.push_back(line);
-                    cout << "\n" << b << "th node done\n" << endl;
                     b++;
                 }
                 f = 1;
                 return curr;
             }
 
-            cout << "CURRENT DATA :" << curr->data << endl;
-
             if (key < curr->data)
             {
 
-                cout << "Draw left" << endl;
                 count++;
                 if (curr->left == NULL)
                 {
                     x1 = x + 30;
                     y1 = y + 30;
                 }
-                //            if(key < root->data)
-                //                n=1;
-                //            else n=0;
-                //            cout<<"N = "<<n<<endl;
                 drawLeftNode(curr, count);
-                //     curr = curr->left;
 
                 f = 0;
-                cout << "DONE" << endl;
                 curr->left = insert(curr->left, key);
 
             }
 
             else
             {
-                //   cout<<"current data "<<curr->data<<endl;
-                cout << "draw right" << endl;
                 count++;
                 if (curr->right == NULL)
                 {
                     x1 = x + 30;
                     y1 = y + 30;
                 }
-                //            if(key >= root->data)
-                //                n=1;
-                //            else n=0;
                 drawRightNode(curr, count);
 
-                // curr = curr->right;
-
-                cout << "DONE" << endl;
                 f = 0;
 
                 curr->right = insert(curr->right, key);
@@ -339,7 +292,6 @@ namespace VisioLab {
             float X, Y;
             if (curr == NULL)
             {
-                cout << "CURR NULL" << endl;
                 if (srch.empty())
                     found = 0;
                 else found = 1;
@@ -353,18 +305,13 @@ namespace VisioLab {
                 Y = curr->shape.getPosition().y;
                 temp->shape.setPosition(X, Y);
                 temp->shapeColor();
-                cout << "X = " << X << " Y= " << Y << endl;
                 srch.push_back(*temp);
                 k++;
-                cout << "K = " << k << endl;
             }
-            cout << "Curr Data +" << curr->data << endl;
 
-            cout << "To the left" << endl;
             Preorder(curr->left, key);
-            cout << "To the right" << endl;
             Preorder(curr->right, key);
-            delete pp;
+            //delete pp;
         }
 
         void Draw(sf::RenderWindow& window)
@@ -392,7 +339,6 @@ namespace VisioLab {
                 return full;
             else if (t == 2)
                 return found;
-            // else return select;
         }
         void setValues(int n, int t)
         {

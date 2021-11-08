@@ -35,8 +35,8 @@ namespace VisioLab {
         void resetBackward(void);
         void resetForward(void);
         void searching(const string& txt);
-        void Left(void);
-        void Right(void);
+        bool Left(void);
+        bool Right(void);
         const string backwardTop(void);
         const string forwardTop(void);
 

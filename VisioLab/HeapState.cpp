@@ -11,8 +11,8 @@ namespace VisioLab {
 	}
 
 	void HeapState::Init() {
-		this->_data->assets.LoadFont("Marker Felt", MARKER_FELT);
-		font = this->_data->assets.getFont("Marker Felt");
+		this->_data->assets.LoadFont("ARLRDBD", ARLRDBD);
+		font = this->_data->assets.getFont("ARLRDBD");
 		
 		textbox.load(40, sf::Color::White, true, font, { 500, 650 });
 

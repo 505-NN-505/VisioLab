@@ -44,8 +44,8 @@ namespace VisioLab {
 		_historyButton.setTexture(this->_data->assets.getTexture("History"));
 		_historyButton.setPosition({ 950.f, 110.f });
 	
-		this->_data->assets.LoadFont("Marker Felt", MARKER_FELT);
-		font = this->_data->assets.getFont("Marker Felt");
+		this->_data->assets.LoadFont("ARLRDBD", ARLRDBD);
+		font = this->_data->assets.getFont("ARLRDBD");
 
 		browser.load({ 100, 600 }, { 400, 600 }, { 180, 80 }, font);
 		textbox1.load(30, sf::Color::White, false, font, { 980, 680 });
@@ -77,15 +77,15 @@ namespace VisioLab {
 				if (event.key.code != '\b') textbox1.typeOn(event);
 			}
 
-			if (this->_data->input.isSpriteClicked(this->_backwardButton, sf::Mouse::Left, this->_data->window)) {
-				browser.Left();
-				monitor.setText(browser.backwardTop());
+			if (!canType && this->_data->input.isSpriteClicked(this->_backwardButton, sf::Mouse::Left, this->_data->window)) {
+				bool done = browser.Left();
+				if(done) monitor.setText(browser.backwardTop());
 			}
-			else if (this->_data->input.isSpriteClicked(this->_forwardButton, sf::Mouse::Left, this->_data->window)) {
-				browser.Right();
-				monitor.setText(browser.backwardTop());
+			else if (!canType && this->_data->input.isSpriteClicked(this->_forwardButton, sf::Mouse::Left, this->_data->window)) {
+				bool done = browser.Right();
+				if(done) monitor.setText(browser.backwardTop());
 			}
-			else if (this->_data->input.isSpriteClicked(this->_searchButton, sf::Mouse::Left, this->_data->window)) {
+			else if (!canType && this->_data->input.isSpriteClicked(this->_searchButton, sf::Mouse::Left, this->_data->window)) {
 				canType = 1;
 				textbox1.setSelected(true);
 			}
@@ -94,6 +94,47 @@ namespace VisioLab {
 			}
 			else if (this->_data->input.isSpriteClicked(this->_historyButton, sf::Mouse::Left, this->_data->window)) {
 				browser.writeToDisk();
+			}
+
+
+			if (!canType && this->_data->input.isMouseOnIt(this->_backwardButton, event, this->_data->window)) {
+				_backwardButton.setColor(sf::Color::Blue);
+			}
+			else {
+				_backwardButton.setColor(sf::Color::White);
+			}
+			if (!canType && this->_data->input.isMouseOnIt(this->_forwardButton, event, this->_data->window)) {
+				_forwardButton.setColor(sf::Color::Blue);
+			}
+			else {
+				_forwardButton.setColor(sf::Color::White);
+			}
+			if (this->_data->input.isMouseOnIt(this->_searchButton, event, this->_data->window)) {
+				_searchButton.setColor(sf::Color::Blue);
+				if(canType) _searchButton.setColor(sf::Color::Red);
+			}
+			else {
+				if(canType) _searchButton.setColor(sf::Color::Red);
+				else _searchButton.setColor(sf::Color::White);
+			}
+
+			if (!canType && this->_data->input.isMousePressedOnIt(this->_backwardButton, event, this->_data->window)) {
+				_backwardButton.setColor(sf::Color::Green);
+			}
+			else if (!canType && this->_data->input.isMouseReleasedFromIt(this->_backwardButton, event, this->_data->window)) {
+				_backwardButton.setColor(sf::Color::Blue);
+			}
+			if (!canType && this->_data->input.isMousePressedOnIt(this->_forwardButton, event, this->_data->window)) {
+				_forwardButton.setColor(sf::Color::Green);
+			}
+			else if (!canType && this->_data->input.isMouseReleasedFromIt(this->_forwardButton, event, this->_data->window)) {
+				_forwardButton.setColor(sf::Color::Blue);
+			}
+			if (!canType && this->_data->input.isMousePressedOnIt(this->_searchButton, event, this->_data->window)) {
+				_searchButton.setColor(sf::Color::Green);
+			}
+			else if (!canType && this->_data->input.isMouseReleasedFromIt(this->_searchButton, event, this->_data->window)) {
+				_searchButton.setColor(sf::Color::Blue);
 			}
 		}
 	}

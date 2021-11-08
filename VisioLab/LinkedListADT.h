@@ -5,12 +5,10 @@ template<class T>
 class LinkedListADT {
     T* head, * tail;
     int length, limit;
-    std::string limitWarning = "Maximum length is ";
 
 public:
     LinkedListADT(int limit = 7) : head(NULL), tail(NULL), length(0) {
         this->limit = limit;
-        limitWarning += std::to_string(limit);
     }
     ~LinkedListADT() {
         clear();
@@ -38,9 +36,6 @@ public:
     }
     bool isFull(void) {
         return length >= limit;
-    }
-    const string& getLimitWarning(void) {
-        return limitWarning;
     }
     T* top(void) {
         return head;

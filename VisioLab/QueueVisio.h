@@ -23,10 +23,10 @@ namespace VisioLab {
             ccBack.y += res.y;
         }
 
-        void dequeue(void)
+        bool dequeue(void)
         {
             if (backward.empty()) {
-                return;
+                return 0;
             }
             RectangleNode newRectangle(font, backward.back()->getData(), 25, res, { 255, 131, 0 }, sf::Color::White);
             newRectangle.setPosition(ccForward);
@@ -36,8 +36,9 @@ namespace VisioLab {
             backward.popBack();
             if (backward.empty()) {
                 resetBackward();
-                return;
+                return 0;
             }
+            return 1;
         }
 
         void visualize(sf::RenderWindow& window)
