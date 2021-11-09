@@ -9,7 +9,7 @@ RectangleNode::RectangleNode(const sf::Font& textFont, const string& textString,
 	this->resolution = resolution;
 	rect.setSize(resolution);
 	rect.setFillColor(sf::Color(color.x, color.y, color.z));
-	rect.setOutlineColor(sf::Color::White);
+	rect.setOutlineColor(tColor);
 	rect.setOutlineThickness(5.0);
 
 	drawable = text;

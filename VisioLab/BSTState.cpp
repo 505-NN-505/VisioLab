@@ -150,6 +150,10 @@ namespace VisioLab {
                         if (flag == 0)
                             obj.setRoot(t);
                         flag = 1;
+                        if (!obj.getValues(1))
+                            v.push_back(obj.get_input());
+
+                        str1.clear();
                     }
                     else
                     {
@@ -158,11 +162,6 @@ namespace VisioLab {
                         obj.Preorder(obj.getRoot(), b);
                         str2.clear();
                     }
-
-                    if (!obj.getValues(1))
-                        v.push_back(obj.get_input());
-
-                    str1.clear();
                 }
                 if (event.text.unicode < 58 && event.text.unicode>43)
 

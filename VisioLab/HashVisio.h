@@ -36,7 +36,7 @@ namespace VisioLab {
             this->res = res;
             for (int i = 0; i < 10; i++)
             {
-                v.push_back(RectangleNode(font, txt, 25, res, { 255, 131, 0 }, sf::Color::White));
+                v.push_back(RectangleNode(font, txt, 25, res, { 255, 131, 0 }, sf::Color::Black));
                 v[i].setPosition(cc);
                 cc.y += res.y;
             }
@@ -51,7 +51,7 @@ namespace VisioLab {
             this->res = res;
             for (int i = 0; i < 10; i++)
             {
-                v.push_back(RectangleNode(font, txt, 25, res, { 255, 131, 0 }, sf::Color::White));
+                v.push_back(RectangleNode(font, txt, 25, res, { 255, 131, 0 }, sf::Color::Black));
                 v[i].setPosition(cc);
                 cc.y += res.y;
             }

@@ -87,49 +87,6 @@ namespace VisioLab {
         {
             return root;
         }
-        int Left_Height(Node* temp)
-        {
-            if (temp != NULL)
-                cout << "CURR DATA IN Left HEIGHT FUNC " << temp->data << endl;
-            if (temp == NULL)
-            {
-                return -1;
-            }
-            else
-                temp = temp->left;
-            int left_H = Left_Height(temp);
-            return left_H + 1;
-        }
-        int Right_Height(Node* temp)
-        {
-            if (temp != NULL)
-                cout << "CURR DATA IN Right HEIGHT FUNC " << temp->data << endl;
-            if (temp == NULL)
-            {
-                cout << "TEMP ID NULL" << endl;
-                return -1;
-            }
-            else
-                temp = temp->right;
-            //  cout<<"Going right"<<endl;
-            int right_H = Right_Height(temp);
-            //   cout<<"Out from right"<<endl;
-            cout << "right height =" << right_H + 1 << endl;
-            return right_H + 1;
-        }
-        int Root_Height(Node* temp)
-        {
-            int l_h, r_h;
-            if (temp == NULL)
-                return -1;
-            l_h = Root_Height(temp->left);
-            //  cout<<"lh = "<<l_h<<endl;
-            r_h = Root_Height(temp->right);
-            //  cout<<"rh = "<<r_h<<endl;
-            return max(l_h, r_h) + 1;
-
-        }
-
         void drawLeftNode(Node* t, int l)
         {
             switch (l)
@@ -311,7 +268,6 @@ namespace VisioLab {
 
             Preorder(curr->left, key);
             Preorder(curr->right, key);
-            //delete pp;
         }
 
         void Draw(sf::RenderWindow& window)
