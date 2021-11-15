@@ -13,12 +13,12 @@ namespace VisioLab {
 		AppDataRef _data;
 		sf::RectangleShape recStack, recBrowse;
 		sf::Font font;
-		//sf::Text text;
 		sf::Sprite _backwardButton, _searchButton, _forwardButton, _pauseButton, _historyButton;
 		Browser browser;
 		Textbox textbox1;
 		Monitor monitor;
-		bool canType;
+		sf::Sprite warning;
+		bool canType, isWarned;
 
 	public:
 		StackState(AppDataRef data);

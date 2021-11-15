@@ -16,7 +16,7 @@ namespace VisioLab {
 
 		HuffmanTree huff;
 		
-		sf::Sprite _pauseButton, _getPrefixCodes;
+		sf::Sprite _pauseButton, _getPrefixCodes, _nextButton;
 		bool canType, textGiven, isTreeReady, isPrefixCodeGenerated;
 
 	public:

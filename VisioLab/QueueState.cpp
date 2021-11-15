@@ -63,7 +63,6 @@ namespace VisioLab {
 					canType = 0;
 					queueScheduling.enqueue(textbox1.getText());
 					textbox1.clear();
-					//_enqueueButton.resetBgColor();
 				}
 			}
 

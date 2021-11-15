@@ -21,6 +21,11 @@ namespace VisioLab {
 		this->_pauseButton.setScale({ 0.3f, 0.3f });
 		_pauseButton.setPosition(this->_data->window.getSize().x - _pauseButton.getLocalBounds().width * 0.3, _pauseButton.getPosition().y);
 
+		this->_data->assets.LoadTexture("NextButton", NEXT_BUTTON);
+		_nextButton.setTexture(this->_data->assets.getTexture("NextButton"));
+		this->_nextButton.setScale({ 0.4f, 0.4f });
+		_nextButton.setPosition(this->_data->window.getSize().x - _nextButton.getLocalBounds().width * 0.5, _nextButton.getPosition().y + 330);
+
 		this->_data->assets.LoadTexture("Prefix Code Button", PREFIX_CODE_BUTTON);
 		_getPrefixCodes.setTexture(this->_data->assets.getTexture("Prefix Code Button"));
 		_getPrefixCodes.setPosition(this->_data->window.getSize().x / 2 - _getPrefixCodes.getLocalBounds().width * 0.5,
@@ -47,9 +52,6 @@ namespace VisioLab {
 
 					textbox.clear();
 				}
-				if (!canType && !isTreeReady && event.key.code == sf::Keyboard::Right) {
-					isTreeReady = huff.huffmanCoding();
-				}
 			}
 
 			else if (canType && event.type == sf::Event::TextEntered) {
@@ -64,6 +66,9 @@ namespace VisioLab {
 				huff.writeToDisk(isPrefixCodeGenerated);
 				isPrefixCodeGenerated = 1;
 			}
+			if (!canType && !isTreeReady && this->_data->input.isSpriteClicked(this->_nextButton, sf::Mouse::Left, this->_data->window)) {
+				isTreeReady = huff.huffmanCoding();
+			}
 		}
 	}
 
@@ -75,8 +80,12 @@ namespace VisioLab {
 		this->_data->window.clear(sf::Color::Black);
 
 		textbox.drawTo(this->_data->window);
-		if (textGiven) huff.drawTo(this->_data->window);
+		if (textGiven) {
+			huff.drawTo(this->_data->window);
+			this->_data->window.draw(this->_nextButton);
+		}
 		if (isTreeReady) this->_data->window.draw(this->_getPrefixCodes);
+
 		this->_data->window.draw(this->_pauseButton);
 		this->_data->window.display();
 	}

@@ -43,6 +43,11 @@ namespace VisioLab {
 		this->_data->assets.LoadTexture("History", HISTORY_BUTTON);
 		_historyButton.setTexture(this->_data->assets.getTexture("History"));
 		_historyButton.setPosition({ 950.f, 110.f });
+
+		this->_data->assets.LoadTexture("BoundaryWarning", WARNING_BUTTON);
+		warning.setTexture(this->_data->assets.getTexture("BoundaryWarning"));
+		this->warning.setScale({ 0.3f, 0.3f });
+		warning.setPosition({ 950.f, 230.f });
 	
 		this->_data->assets.LoadFont("ARLRDBD", ARLRDBD);
 		font = this->_data->assets.getFont("ARLRDBD");
@@ -51,7 +56,7 @@ namespace VisioLab {
 		textbox1.load(30, sf::Color::White, false, font, { 980, 680 });
 		monitor.load("Resources/Textures/monitor.png", font, 60, recBrowse);
 
-		canType = 0;
+		canType = 0, isWarned = 0;
 	}
 
 	void StackState::HandleInput() {
@@ -67,7 +72,8 @@ namespace VisioLab {
 				}
 				if (event.key.code == sf::Keyboard::Enter) {
 					canType = 0;
-					browser.searching(textbox1.getText());
+					int done = browser.searching(textbox1.getText());
+					if (done == -1) isWarned = 1;
 					monitor.setText(browser.backwardTop());
 					textbox1.clear();
 				}
@@ -78,12 +84,18 @@ namespace VisioLab {
 			}
 
 			if (!canType && this->_data->input.isSpriteClicked(this->_backwardButton, sf::Mouse::Left, this->_data->window)) {
-				bool done = browser.Left();
-				if(done) monitor.setText(browser.backwardTop());
+				int done = browser.Left();
+				if (done == 1) {
+					monitor.setText(browser.backwardTop());
+					isWarned = 0;
+				}
 			}
 			else if (!canType && this->_data->input.isSpriteClicked(this->_forwardButton, sf::Mouse::Left, this->_data->window)) {
-				bool done = browser.Right();
-				if(done) monitor.setText(browser.backwardTop());
+				int done = browser.Right();
+				if (done == 1) {
+					monitor.setText(browser.backwardTop());
+					isWarned = 0;
+				}
 			}
 			else if (!canType && this->_data->input.isSpriteClicked(this->_searchButton, sf::Mouse::Left, this->_data->window)) {
 				canType = 1;
@@ -157,6 +169,8 @@ namespace VisioLab {
 		textbox1.drawTo(this->_data->window);
 		monitor.drawTo(this->_data->window);
 		browser.visualize(this->_data->window);
+
+		if (isWarned) this->_data->window.draw(warning);
 
 		this->_data->window.draw(this->_pauseButton);
 

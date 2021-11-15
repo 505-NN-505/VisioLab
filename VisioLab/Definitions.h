@@ -23,9 +23,11 @@
 #define SEARCH_BUTTON "Resources/Textures/Search Button.png"
 #define FORWARD_BUTTON "Resources/Textures/Forward Button.png"
 #define ENQUEUE_BUTTON "Resources/Textures/Enqueue Button.png"
+#define NEXT_BUTTON "Resources/Textures/NextButton.png"
 
 #define HISTORY_BUTTON "Resources/Textures/History.png"
 #define PREFIX_CODE_BUTTON "Resources/Textures/Prefix Codes.png"
+#define WARNING_BUTTON "Resources/Textures/BoundaryWarning.png"
 
 #define AMAGRO "Resources/Fonts/Amagro.ttf"
 #define COLUS "Resources/Fonts/Colus.ttf"

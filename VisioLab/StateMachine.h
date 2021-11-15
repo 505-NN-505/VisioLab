@@ -6,6 +6,7 @@
 
 namespace VisioLab {
 	typedef std::unique_ptr<State> StateRef;
+
 	class StateMachine {
 	private:
 		std::stack<StateRef> _states;	// stores the address of the states in the _states stack

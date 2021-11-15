@@ -48,8 +48,8 @@ namespace VisioLab {
     void Browser::resetForward(void) {
         ccForward = scForward;
     }
-    void Browser::searching(const string& txt) {
-        if (!backward.inLimit()) return;
+    int Browser::searching(const string& txt) {
+        if (!backward.inLimit()) return -1;
         RectangleNode newRectangle(font, txt, 35, res, { 255, 131, 0 }, sf::Color::White);
         newRectangle.setPosition(ccBack);
         RectangleLink* newNode = new RectangleLink(NULL, newRectangle, backward.top());
@@ -58,8 +58,9 @@ namespace VisioLab {
         ccBack.y -= res.y;
         forward.clear();
         resetForward();
+        return 1;
     }
-    bool Browser::Left(void) {
+    int Browser::Left(void) {
         if (backward.size() > 1 && forward.inLimit()) {
             RectangleNode newRectangle(font, backward.top()->getData(), 35, res, { 255, 131, 0 }, sf::Color::White);
             newRectangle.setPosition(ccForward);
@@ -70,9 +71,10 @@ namespace VisioLab {
             ccBack.y += res.y;
             return 1;
         }
+        else if (!forward.inLimit()) return -1;
         return 0;
     }
-    bool Browser::Right(void) {
+    int Browser::Right(void) {
         if (!forward.empty() && backward.inLimit()) {
             RectangleNode newRectangle(font, forward.top()->getData(), 35, res, { 255, 131, 0 }, sf::Color::White);
             newRectangle.setPosition(ccBack);
@@ -83,7 +85,8 @@ namespace VisioLab {
             ccForward.y += res.y;
             return 1;
         }
-        return 0;
+        else if (!backward.inLimit()) return -1;
+        else return 0;
     }
     const string Browser::backwardTop(void) {
         return backward.top()->getData();

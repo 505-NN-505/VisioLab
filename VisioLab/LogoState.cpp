@@ -28,7 +28,7 @@ namespace VisioLab {
 	}
 
 	void LogoState::Update(float dt) {
-		if (this->_clock.getElapsedTime().asSeconds() > 2) {	// the logo scene stay for 3 seconds
+		if (this->_clock.getElapsedTime().asSeconds() > 2) {	// the logo scene stay for 2 seconds
 			// Switch To Main Menu
 			this->_data->machine.AddState(StateRef(new MainMenuState(_data)), true); // then the new state MainMenuState will be added
 		}																				// replacing the LogoState

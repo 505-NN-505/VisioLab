@@ -34,9 +34,9 @@ namespace VisioLab {
         void load(const sf::Vector2f& cb, const sf::Vector2f& cf, const sf::Vector2f& res, const sf::Font& f);
         void resetBackward(void);
         void resetForward(void);
-        void searching(const string& txt);
-        bool Left(void);
-        bool Right(void);
+        int searching(const string& txt);
+        int Left(void);
+        int Right(void);
         const string backwardTop(void);
         const string forwardTop(void);
 
