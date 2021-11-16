@@ -18,5 +18,9 @@ The queue scheduling of a cafe is implemented by Queue. Arrival and departure of
 ## Hashtable
 Linear probing is displayed in this section. Inputs colliding more than 6 times are abandoned.
 
+![](Demo/Hashtable.gif)
+
 ## Binary Search Tree
-The operations, insert and search of BST are available in version 1.1. Maximum height of the BST can be 5. 
+The operations, insert and search of BST are available in version 1.1. Maximum height of the BST can be 5.
+
+![](Demo/BST.gif)
