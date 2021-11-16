@@ -5,7 +5,7 @@
 ## Stack
 A basic browser is implemented by the two stacks approach. It demonstrates how searching and "going back and forth" work in a browser. Another stack will let the user know
 their searching history.
-![ Browser](Demo/Stack. gif) / ! [](Demo/Stack. gif)
+![](Demo/Stack.gif)
 
 ## Heap
 Heap is implemented via Huffman Coding. User's message will be converted into the Huffman tree. Then the prefix codes of the message will be accessible.
