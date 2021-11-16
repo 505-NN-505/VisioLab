@@ -24,3 +24,7 @@ Linear probing is displayed in this section. Inputs colliding more than 6 times 
 The operations, insert and search of BST are available in version 1.1. Maximum height of the BST can be 5.
 
 ![](Demo/BST.gif)
+
+# UML
+
+![](Demo/VisioLab UML Diagram.png)
