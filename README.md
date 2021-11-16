@@ -9,6 +9,7 @@ their searching history.
 
 ## Heap
 Heap is implemented via Huffman Coding. User's message will be converted into the Huffman tree. Then the prefix codes of the message will be accessible.
+![](Demo/Heap.gif)
 
 ## Queue
 The queue scheduling of a cafe is implemented by Queue. Arrival and departure of the inputs are tracked in the two queue approach.
