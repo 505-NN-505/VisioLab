@@ -13,6 +13,8 @@ Heap is implemented via Huffman Coding. User's message will be converted into th
 ## Queue
 The queue scheduling of a cafe is implemented by Queue. Arrival and departure of the inputs are tracked in the two queue approach.
 
+![](Demo/Queue.gif)
+
 ## Hashtable
 Linear probing is displayed in this section. Inputs colliding more than 6 times are abandoned.
 
