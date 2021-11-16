@@ -27,4 +27,4 @@ The operations, insert and search of BST are available in version 1.1. Maximum h
 
 # UML
 
-![](Demo/VisioLab UML Diagram.png)
+https://github.com/go-2-sleep/VisioLab/blob/master/Demo/VisioLab%20UML%20Diagram.png
