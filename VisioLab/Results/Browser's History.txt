@@ -1,6 +1,6 @@
 Search History:
-Twitter
 Discord
 CPalgo
-CSES
+Cses
+Github
 Google
