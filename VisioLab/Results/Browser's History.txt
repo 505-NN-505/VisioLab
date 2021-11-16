@@ -1,9 +1,6 @@
 Search History:
-a
-a
-a
-a
-a
-a
-a
-a
+Twitter
+Discord
+CPalgo
+CSES
+Google
