@@ -1,7 +1,5 @@
 # VisioLab
 
-## Data Structure Showcase
-
 ## Stack
 A basic browser is implemented by the two stacks approach. It demonstrates how searching and "going back and forth" work in a browser. Another stack will let the user know
 their searching history.
@@ -9,6 +7,8 @@ their searching history.
 
 ## Heap
 Heap is implemented via Huffman Coding. User's message will be converted into the Huffman tree. Then the prefix codes of the message will be accessible.
+
+![](Demo/Heap.gif)
 
 ## Queue
 The queue scheduling of a cafe is implemented by Queue. Arrival and departure of the inputs are tracked in the two queue approach.
