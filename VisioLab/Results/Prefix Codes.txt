@@ -1,11 +1,15 @@
 Your Message from input:
-asdaskdjlhaskjdhaskdhjaskd
+VisioLab Visualizes
 
 Prefix Codes:
-a : 111
-d : 00
-h : 100
-j : 1101
-k : 101
-l : 1100
-s : 01
+L : 0100
+V : 011
+a : 100
+b : 1011
+e : 11111
+i : 00
+l : 1110
+o : 11110
+s : 110
+u : 1010
+z : 0101

@@ -1,6 +1,6 @@
 #pragma once
 
-#define SCREEN_WIDTH 1360
+#define SCREEN_WIDTH 1368
 #define SCREEN_HEIGHT 760
 
 #define LOGO_STATE_SHOW_TIME 0.5
