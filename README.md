@@ -6,7 +6,7 @@ their searching history.
 ![](Demo/Stack.gif)
 
 ## Heap
-Heap is implemented via Huffman Coding. User's message will be converted into the Huffman tree. Then the prefix codes of the message will be accessible.
+Heap is implemented via Huffman Coding. User's message will be converted into the Huffman tree. Then the prefix codes of the message will be accessible through a text file.
 
 ![](Demo/Heap.gif)
 
