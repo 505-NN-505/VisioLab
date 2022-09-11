@@ -1,7 +1,7 @@
 # VisioLab
 
 ## Stack
-A basic browser is implemented by the two stacks approach. It demonstrates how searching and "going back and forth" work in a browser. Another stack will let the user know
+A demo browser is implemented by the two stacks approach. It demonstrates how searching and "going back and forth" work in a browser. Another stack will let the user know
 their searching history.
 ![](Demo/Stack.gif)
 
