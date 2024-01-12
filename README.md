@@ -1,7 +1,9 @@
+<h1 align="center">
 ![image](https://github.com/505-NN-505/VisioLab/assets/98690406/06aac7dd-87be-446e-88d6-54925ae00d81)
+</h1>
+An educational software to observe and comprehend the inner workings of Data Structures within real-world problem-solving contexts.
 
-An educational software to observe and comprehend the inner workings of these structures within real-world problem-solving contexts.
-
+# Demo
 ### Stack
 A demo browser is implemented by the two stacks approach. It demonstrates how searching and "going back and forth" work in a browser. Another stack will let the user know
 their searching history.
@@ -27,6 +29,4 @@ The operations, insert and search of BST are available in version 1.1. Maximum h
 
 ![](Demo/BST.gif)
 
-### UML
 
-![alt text](https://github.com/go-2-sleep/VisioLab/blob/master/Demo/VisioLab%20UML%20Diagram.png)
