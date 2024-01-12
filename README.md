@@ -1,6 +1,6 @@
 ![image](https://github.com/505-NN-505/VisioLab/assets/98690406/06aac7dd-87be-446e-88d6-54925ae00d81)
 
-An educational software to observe and comprehend the inner workings of the basic Data Structures within real-world problem-solving contexts.
+An educational software to observe the inner workings of the basic Data Structures within real-world problem-solving contexts.
 
 # Demo
 ### Stack
