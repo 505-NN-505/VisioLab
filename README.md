@@ -1,4 +1,4 @@
-![image](https://github.com/505-NN-505/VisioLab/assets/98690406/d9adc565-afbb-43e5-b246-ed4927aac539)
+![image](https://github.com/505-NN-505/VisioLab/assets/98690406/0cd64dd2-3653-463e-be25-a2db8295ddec)
 
 An educational software to observe and comprehend the inner workings of these structures within real-world problem-solving contexts.
 
